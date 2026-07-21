@@ -183,13 +183,6 @@ function MainCont() {
     },
   ];
 
-  // Функции для калькулятора
-  const openCalculator = () => {
-    setIsCalculatorOpen(true);
-    setSelectedServices([]);
-    setTotalPrice(0);
-  };
-
   const closeCalculator = () => {
     setIsCalculatorOpen(false);
   };
