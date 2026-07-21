@@ -119,7 +119,7 @@ function PortfolioGrid({ activeFilter, showAll, onToggleShowAll }) {
       "image": "/assets/portfolio/zvet/logo.svg",
       "description": "Интернет-магазин мягкой мебели от производителя с собственным производством.",
       "link": "https://zvet.ru/",
-      "technologies": ["Vue 3", "JavaScript", "API", "Система скидок и бонусов"],
+      "technologies": ["Vue 3", "JavaScript", "API"],
       "features": [
         "Каталог диванов с фильтрацией по размерам, материалам и ценам",
         "Детальные карточки товаров с характеристиками (габариты, сроки доставки, скидки)",
