@@ -1,0 +1,412 @@
+@import "../../index.scss";
+
+.footer {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 60px 0 20px;
+  position: relative;
+  margin-top: auto;
+
+  @include tablet {
+    padding: 40px 0 20px;
+  }
+
+  a {
+    -webkit-tap-highlight-color: transparent;
+    -tap-highlight-color: transparent;
+  }
+
+  &__container {
+    max-width: var(--container-width);
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+
+    @include mobile {
+      width: 95%;
+    }
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    margin-bottom: 40px;
+
+    @include laptop {
+      gap: 40px;
+    }
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  &__brand {
+    .footer__logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      background: linear-gradient(
+        135deg,
+        var(--primary-color) 0%,
+        #ffffff 50%,
+        var(--primary-color) 100%
+      );
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: gradientFlow 6s ease infinite;
+
+      @include mobile {
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+
+      &:hover {
+        animation: gradientFlow 3s ease infinite;
+      }
+    }
+
+    .footer__description {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 30px;
+      font-size: 14px;
+
+      @include mobile {
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .footer__social {
+      display: flex;
+      gap: 16px;
+
+      @include mobile {
+        gap: 12px;
+        justify-content: center;
+      }
+
+      .social__link {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        color: var(--text-secondary);
+
+        @include mobile {
+          width: 35px;
+          height: 35px;
+        }
+
+        &:hover {
+          background: var(--primary-color);
+          color: white;
+          transform: translateY(-2px);
+        }
+
+        svg {
+          width: 20px;
+          height: 20px;
+
+          @include mobile {
+            width: 18px;
+            height: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  &__links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+
+    @include laptop {
+      gap: 30px;
+    }
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      text-align: center;
+    }
+
+    @media (max-width: 968px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__column {
+    .footer__title {
+      color: var(--text-primary);
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      position: relative;
+
+      @include mobile {
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 30px;
+        height: 2px;
+        background: var(--primary-color);
+        border-radius: 1px;
+
+        @include mobile {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+    .footer__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 12px;
+
+        @include mobile {
+          margin-bottom: 10px;
+        }
+
+        a {
+          color: var(--text-secondary);
+          text-decoration: none;
+          font-size: 14px;
+          transition: all 0.3s ease;
+          cursor: pointer;
+
+          @include mobile {
+            font-size: 13px;
+          }
+
+          &:hover {
+            color: var(--primary-color);
+            padding-left: 8px;
+          }
+        }
+
+        &.footer__contact {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: var(--text-secondary);
+          font-size: 14px;
+
+          @include mobile {
+            font-size: 13px;
+            justify-content: center;
+          }
+
+          svg {
+            width: 16px;
+            height: 16px;
+            color: var(--primary-color);
+            flex-shrink: 0;
+
+            @include mobile {
+              width: 14px;
+              height: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    @include mobile {
+      flex-direction: column;
+      gap: 15px;
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+  }
+
+  &__copyright {
+    color: var(--text-secondary);
+    font-size: 14px;
+
+    @include mobile {
+      font-size: 12px;
+    }
+  }
+
+  &__legal {
+    display: flex;
+    gap: 30px;
+
+    @include tablet {
+      gap: 20px;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+
+    a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      @include mobile {
+        font-size: 12px;
+      }
+
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  &__scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    &.hidden {
+      opacity: 0;
+      transform: translateY(20px) scale(0.8);
+      pointer-events: none;
+    }
+
+    @include mobile {
+      bottom: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s ease;
+
+      @include mobile {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &:hover svg {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Анимация градиента
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// Планшеты в портретной ориентации
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+  .footer {
+    &__links {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+// Ландшафтная ориентация для мобильных
+@media (max-width: 768px) and (orientation: landscape) {
+  .footer {
+    padding: 30px 0 15px;
+
+    &__top {
+      gap: 20px;
+    }
+  }
+}

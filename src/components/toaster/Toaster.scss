@@ -1,0 +1,161 @@
+// src/components/toaster/Toaster.scss
+@import '../../index.scss';
+
+.toaster {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--modal-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  z-index: 10005;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  max-width: 400px;
+  min-width: 300px;
+  
+  &.visible {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+  &.success {
+    border-left: 4px solid #4CAF50;
+  }
+  
+  &.error {
+    border-left: 4px solid #F44336;
+  }
+  
+  @include mobile {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+    min-width: auto;
+  }
+}
+
+.toasterContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toasterIcon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.toaster.success .toasterIcon {
+  color: #4CAF50;
+}
+
+.toaster.error .toasterIcon {
+  color: #F44336;
+}
+
+.toasterMessage {
+  flex: 1;
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.toasterClose {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+// Анимация появления
+@keyframes toasterSlideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toasterSlideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+// Адаптация для мобильных
+@include mobile {
+  .toaster {
+    padding: 14px 16px;
+  }
+  
+  .toasterContent {
+    gap: 10px;
+  }
+  
+  .toasterMessage {
+    font-size: 13px;
+  }
+}
+
+// Для очень маленьких экранов
+@media (max-width: 320px) {
+  .toaster {
+    padding: 12px;
+    border-radius: 10px;
+  }
+  
+  .toasterIcon {
+    width: 20px;
+    height: 20px;
+    
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  
+  .toasterMessage {
+    font-size: 12px;
+  }
+}
